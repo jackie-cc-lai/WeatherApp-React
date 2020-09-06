@@ -1,0 +1,35 @@
+.weather-header{
+    width:100%;
+    margin:auto;
+    height:300px;
+    display:flex;
+}
+
+.div-info{
+    width:40%;
+    display:block;
+    margin:auto;
+    color:#fff;
+}
+
+.weather-icon{
+    margin-right:0px;
+    padding-right:0px;
+}
+
+.weather-infp{
+    font-size:20px;
+    font-weight:600;
+}
+
+.background-dark-blue{
+    background-color:#002366;
+}
+
+.background-yellow{
+    background-color:#eeaa00;
+}
+
+.background-green{
+    background-color:#00aa00;
+}

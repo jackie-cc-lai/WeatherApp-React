@@ -1,0 +1,7 @@
+.main{
+    width:100%;
+    height:calc(100% - 56px);
+    top:56px;
+    position:absolute;
+    border-top:1px solid #ddd;
+}
