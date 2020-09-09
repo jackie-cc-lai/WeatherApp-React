@@ -9,7 +9,6 @@
     width:40%;
     display:block;
     margin:auto;
-    color:#fff;
 }
 
 .weather-icon{
@@ -22,8 +21,8 @@
     font-weight:600;
 }
 
-.background-dark-blue{
-    background-color:#002366;
+.background-blank{
+    background-color:rgba(185,185,185,0.4);
 }
 
 .background-yellow{

@@ -1,0 +1,13 @@
+.forecastIndiv{
+    border:1px solid #ccc;
+    display:inline-block;
+    width:16.4%;
+    color:#fff;
+}
+.forecastTemp{
+    font-size:20px;
+}
+
+.forecastTable{
+    background-color:#002366;
+}
