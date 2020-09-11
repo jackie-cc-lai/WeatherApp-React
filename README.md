@@ -11,3 +11,7 @@ The app is generated via create react app
 
 ## Auxiliary
  - Request/Axios service for initial check/auth with service, and request for weather/look up city (still not working)
+ 
+ ## TODO
+  - UI - UI's still a mess
+  - Look into using hooks/other methods over using callbacks via props. Using props as a callback feels weird and dangerous
