@@ -32,8 +32,12 @@ export class Navbar extends React.Component<PassedProps,NavbarState>{
     render(){
         return (
             <div className="navbar">
-                <TextField value={this.state.cityName} onChange={this.changeCityValue} id="standard-basic" label="Standard" inputProps={{'aria-label':'description'}} />
-                <Button variant="contained" color="primary" onClick={() => this.sendSearch()}>Search</Button>
+                <div className="form-input-control">
+                    <TextField value={this.state.cityName} onChange={this.changeCityValue} id="standard-basic" label="Search City" inputProps={{'aria-label':'description'}} />
+                </div>
+                <div className="form-input-control">
+                     <Button variant="contained" color="primary" onClick={() => this.sendSearch()}>Search</Button>
+                </div>
             </div>
         )
     }

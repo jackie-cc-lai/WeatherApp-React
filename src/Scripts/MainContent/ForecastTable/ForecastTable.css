@@ -1,13 +1,19 @@
 .forecastIndiv{
     border:1px solid #ccc;
     display:inline-block;
-    width:16.4%;
     color:#fff;
+    height:100%;
 }
-.forecastTemp{
-    font-size:20px;
+
+.forecastInGrid{
+    height:230px;
+}
+
+.forecastLarge{
+    font-size:25px;
 }
 
 .forecastTable{
     background-color:#002366;
+    color:#fff;
 }

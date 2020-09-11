@@ -2,6 +2,7 @@ import React from 'react';
 import './CurrentWeather.css';
 import { currentWeather } from '../../../Typings/Weather';
 import moment from 'moment';
+import { Grid } from '@material-ui/core';
 
 interface WeatherState{
     icon:string;
@@ -48,25 +49,27 @@ export class CurrentWeather extends React.Component<PassedProps,WeatherState>{
     }
     render(){
         return(
-            <div className={`weather-header ${this.state.background}`}>
-                <div className="div-info">
-                    <div className="weather-icon">
+            <Grid container direction="row" justify="space-evenly" alignItems="center" spacing={1} className={`weather-header ${this.state.background}`}>
+                <Grid item xs={4}></Grid>
+                <Grid item xs={2} className="Grid-info">
+                    <Grid className="weather-icon">
                         <img alt="" src={`${this.state.staticUrl}/${this.state.icon}@4x.png`}/>
-                    </div>
-                </div>
-                <div className="div-info">
-                    <div className="weather-temp">
+                    </Grid>
+                </Grid>
+                <Grid item xs={2} className="Grid-info">
+                    <Grid className="weather-temp">
                         {this.state.temp} &deg;C
-                    </div>
-                    <div className="weather-wind">
+                    </Grid>
+                    <Grid className="weather-wind">
                         {`${this.state.wind}km/h ${this.state.direction}`} 
-                    </div>
-                    <div className="weather-sun">
+                    </Grid>
+                    <Grid className="weather-sun">
                         {`Sunrise: ${this.state.sunrise}`}<br/>
                         {`Sunset: ${this.state.sunset}`}
-                    </div>
-                </div>
-            </div>
+                    </Grid>
+                </Grid>
+                <Grid item xs={4}></Grid>
+            </Grid>
         )
     }
 }

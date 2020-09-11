@@ -3,6 +3,18 @@
     top:0px;
     height:56px;
     width:100%;
-    align-content:space-between;
     padding-top:15px;
+    display:flex;
+    flex-direction: row;
+    
+}
+
+.form-input-control{
+    margin:5px;
+    max-width:200px;
+}
+
+button{
+    height:48px;
+    width:150px;
 }

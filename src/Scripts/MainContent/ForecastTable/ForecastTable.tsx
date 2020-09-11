@@ -2,6 +2,8 @@ import React from 'react';
 import './ForecastTable.css';
 import { forecastWeather } from '../../../Typings/Weather';
 import moment from 'moment';
+import { Grid } from '@material-ui/core';
+
 
 interface WeatherState{
     data:Array<forecastWeather>;
@@ -33,20 +35,22 @@ export class ForecastTable extends React.Component<PassedProps,WeatherState>{
     renderTable:any = () =>{
         return this.state.data.map((r,i)=>{
             return (
-                <div className="forecastIndiv" key={i}>
-                    <div className="forecastDate">{moment(r.date).format('MM/DD')}</div>
-                    <div className="forecastTemp">{r.temp}</div>
-                    <div className="forecastIcon"><img alt="" src={`${this.state.staticUrl}/${r.icon}@2x.png`} /></div>
-                    <div className="forecastTempMax">{`High: ${r.maxTemp}`}</div>
-                    <div className='forecastTempMin'>{`Low: ${r.minTemp}`}</div>
-                </div>
+                <Grid container alignItems="center" direction="row" justify="space-around" lg={2} md={4} className="forecastIndiv" key={i}>
+                    <Grid item lg={12} md={6} className="forecastLarge">{moment(r.date).format('MM/DD')}</Grid>
+                    <Grid item lg={3} md={6}></Grid>
+                    <Grid item lg={3} md={6} className="forecastLarge">{r.temp}&deg;C</Grid>
+                    <Grid item lg={3} md={6} className="forecastIcon"><img alt="" src={`${this.state.staticUrl}/${r.icon}@2x.png`} /></Grid>
+                    <Grid item lg={3} md={6} ></Grid>
+                    <Grid item lg={6} md={12} className="forecastTempMax">{`High: ${r.maxTemp}`}&deg; C</Grid>
+                    <Grid item lg={6} md={12} className='forecastTempMin'>{`Low: ${r.minTemp}`}&deg; C</Grid>
+                </Grid>
             )
         })
     }
 
     render(){
         return(
-            <div className="forecastTable">{this.renderTable()}</div>
+            <Grid container direction="row" justify="space-evenly" alignItems="center" spacing={1} className="forecastTable">{this.renderTable()}</Grid>
         )
     }
 }
