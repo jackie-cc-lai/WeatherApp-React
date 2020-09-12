@@ -3,6 +3,8 @@
     display:inline-block;
     color:#fff;
     height:100%;
+    padding-top:20px;
+    padding-bottom:20px;
 }
 
 .forecastInGrid{
@@ -16,4 +18,5 @@
 .forecastTable{
     background-color:#002366;
     color:#fff;
+    height:300px;
 }
