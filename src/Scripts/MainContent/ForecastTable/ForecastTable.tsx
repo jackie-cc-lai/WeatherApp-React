@@ -1,13 +1,16 @@
 import React from 'react'; 
 import './ForecastTable.css';
-import { forecastWeather } from '../../../Typings/Weather';
+import { forecastWeather, weatherGeneral } from '../../../Typings/Weather';
 import moment from 'moment';
 import { Grid } from '@material-ui/core';
+import { ForecastDay } from './ForecastDay/ForecastDay';
 
 
 interface WeatherState{
     data:Array<forecastWeather>;
     staticUrl:string;
+    selectedDay:boolean;
+    selectedData:Array<weatherGeneral>;
 }
 
 interface PassedProps extends React.Props<any>{
@@ -18,7 +21,9 @@ export class ForecastTable extends React.Component<PassedProps,WeatherState>{
         super(props);
         this.state = {
             data:[],
-            staticUrl:'https://openweathermap.org/img/wn'
+            staticUrl:'https://openweathermap.org/img/wn',
+            selectedDay:false,
+            selectedData:[]
         }
     };
 
@@ -32,10 +37,25 @@ export class ForecastTable extends React.Component<PassedProps,WeatherState>{
         }
     }
 
+    setDay = (dayData:forecastWeather) => {
+        this.setState({
+            selectedData:dayData.daily,
+            selectedDay:!this.state.selectedDay
+        })
+    }
+
     renderTable:any = () =>{
         return this.state.data.map((r,i)=>{
             return (
-                <Grid container alignItems="center" direction="row" justify="space-around" lg={2} md={4} className="forecastIndiv" key={i}>
+                <Grid container 
+                      alignItems="center" 
+                      direction="row" 
+                      justify="space-around" 
+                      lg={2} 
+                      md={4} 
+                      className="forecastIndiv" 
+                      key={i}
+                      onClick={()=>{this.setDay(r)}}>
                     <Grid item lg={12} md={6} className="forecastLarge">{moment(r.date).format('MM/DD')}</Grid>
                     <Grid item lg={3} md={6}></Grid>
                     <Grid item lg={3} md={6} className="forecastLarge">{r.temp}&deg;C</Grid>
@@ -50,7 +70,10 @@ export class ForecastTable extends React.Component<PassedProps,WeatherState>{
 
     render(){
         return(
-            <Grid container direction="row" justify="space-evenly" alignItems="center" spacing={1} className="forecastTable">{this.renderTable()}</Grid>
+            <div className="futureWeather-div">
+                <Grid container direction="row" justify="space-evenly" alignItems="center" spacing={1} className="forecastTable">{this.renderTable()}</Grid>
+                <ForecastDay data={this.state.selectedData}></ForecastDay>
+            </div>
         )
     }
 }
