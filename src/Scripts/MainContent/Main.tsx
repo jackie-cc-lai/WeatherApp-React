@@ -62,7 +62,6 @@ export class Main extends React.Component<PassedProps,MainState>{
         console.log(this.state.data);
     }
     selectCity = async (city:any) =>{
-        console.log(city);
         let data = await this.getData(city.id);
         this.setState({citySearch:[], city:city.name});
     }

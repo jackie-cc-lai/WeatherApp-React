@@ -35,8 +35,10 @@ export class SearchTable extends React.Component<PassedProps,SearchState>{
     renderTable:any = () =>{
         return this.state.data.map((r,i)=>{
             return (
-                <Grid container alignItems="center" direction="row" justify="space-around" lg={2} md={4} className="forecastIndiv" key={i}>
-                    <Grid item xs={12} className="searchTableIndiv"><div onClick={()=>{this.selectCity(r)}}>{r.name}, {r.state}, {r.country}</div></Grid>
+                <Grid item alignItems="center" direction="row" justify="space-around" lg={12} md={12} xs={12} className="searchIndiv" key={i}>
+                    <div onClick={()=>{this.selectCity(r)}}>
+                        {`${r.name}${r.state ? ',' : ''} ${r.state}, ${r.country}`}
+                    </div>
                 </Grid>
             )
         })
